@@ -12,11 +12,18 @@ class WorkTest {
 
     @Test
     @DisplayName("명언 등록 확인 테스트")
-    void register() {
-        List<WiseSaying> wiseSayings = new ArrayList<>();
-        wiseSayings.add(new WiseSaying(1,"내용","이름"));
-        assertThat(wiseSayings.get(0).getId()).isEqualTo(1);
-        assertThat(wiseSayings.get(0).getAuthorName()).isEqualTo("이름");
-        assertThat(wiseSayings.get(0).getContent()).isEqualTo("내용");
+    void registerTest() {
+
+        Work work = new Work();
+        work.register("내용","이름");
+        assertThat(1).isEqualTo(work.getWiseSayingSize());
+    }
+
+    @Test
+    @DisplayName("명언 리스트 출력 테스트")
+    void showListTest() {
+       Work work = new Work();
+       work.register("내용","이름");
+       assertThat(work.showList().get(0)).isEqualTo("1 / 내용 / 이름");
     }
 }

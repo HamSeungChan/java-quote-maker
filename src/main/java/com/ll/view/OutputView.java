@@ -1,5 +1,8 @@
 package com.ll.view;
 
+import java.util.Collections;
+import java.util.List;
+
 public class OutputView {
 
     private static final String INPUT_COMMAND = "명령";
@@ -13,4 +16,10 @@ public class OutputView {
         System.out.printf(REGISTER_MESSAGE, id);
     }
 
+    public static void printList(List<String> wiseSayings){
+        Collections.reverse(wiseSayings);
+        for(String s : wiseSayings){
+            System.out.println(s);
+        }
+    }
 }

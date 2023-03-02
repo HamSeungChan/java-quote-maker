@@ -4,6 +4,7 @@ import com.ll.domain.WiseSaying;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class Work {
 
@@ -19,5 +20,16 @@ class Work {
     public void register(String content, String authorName) {
         wiseSayings.add(new WiseSaying(id, content, authorName));
         id++;
+    }
+
+    public List<String> showList(){
+        return wiseSayings
+                .stream()
+                .map(e -> e.getId()+" / "+e.getContent()+" / "+e.getAuthorName())
+                .collect(Collectors.toList());
+    }
+
+    public int getWiseSayingSize(){
+        return wiseSayings.size();
     }
 }
