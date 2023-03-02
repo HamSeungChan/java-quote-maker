@@ -32,4 +32,18 @@ class Work {
     public int getWiseSayingSize(){
         return wiseSayings.size();
     }
+
+    public boolean deleteWiseSaying(int id) {
+        for(int i=0;i<wiseSayings.size();i++){
+            if(isSameId(wiseSayings.get(i),id)){
+                wiseSayings.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isSameId(WiseSaying wiseSaying, int id){
+        return wiseSaying.getId() == id;
+    }
 }
